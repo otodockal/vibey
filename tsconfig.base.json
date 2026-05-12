@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@vibey/shared-ui": [
+        "./libs/shared-ui/src/index.ts"
+      ],
+      "@vibey/shared-util": [
+        "./libs/shared-util/src/index.ts"
+      ],
+      "@vibey/products-data-access": [
+        "./libs/products-data-access/src/index.ts"
+      ],
+      "@vibey/orders-data-access": [
+        "./libs/orders-data-access/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
+}

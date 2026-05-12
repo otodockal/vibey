@@ -1,0 +1,16 @@
+packages:
+  - 'apps/*'
+  - 'libs/*'
+allowBuilds:
+  nx: true
+  '@parcel/watcher': true
+  esbuild: true
+  '@swc/core': true
+  less: true
+  '@angular/build': true
+  '@nx/core': true
+  lmdb: true
+  msgpackr-extract: true
+  '@nestjs/core': true
+  '@scarf/scarf': true
+autoInstallPeers: true

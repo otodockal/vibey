@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.card {
+  position: relative;
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: var(--radius-lg, 16px);
+  padding: 1.25rem 1.4rem;
+  background: var(--surface, #fff);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong, rgba(0, 0, 0, 0.18));
+  box-shadow: var(--shadow-lg, 0 8px 24px -12px rgba(0, 0, 0, 0.12));
+}
+
+header {
+  margin-bottom: 0.875rem;
+}
+
+header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg, #0a0a0a);
+}
+
+.body {
+  color: var(--fg-muted, #525252);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

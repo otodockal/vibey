@@ -21,13 +21,23 @@ apps/
     ProductsService/                  .NET 10 service (port 5101)
   orders-service/
     OrdersService/                    .NET 10 service (port 5102)
+  users-service/
+    UsersService/                     .NET 10 service (port 5103)
+  inventory-service/
+    InventoryService/                 .NET 10 service (port 5104)
+  payments-service/
+    PaymentsService/                  .NET 10 service (port 5105)
 libs/
   shared-ui/                          Angular UI + shared TS models
+  shared-util/                        Cross-cutting Angular helpers
   products-data-access/               Angular HttpClient wrapper
   orders-data-access/                 Angular HttpClient wrapper
+  users-data-access/                  Angular HttpClient wrapper
+  inventory-data-access/              Angular HttpClient wrapper
+  payments-data-access/               Angular HttpClient wrapper
   dotnet/
-    Contracts/                        Shared C# DTOs (referenced by both services)
-Backend.sln                           Opens all three .NET projects in VS/Rider
+    Contracts/                        Shared C# DTOs (referenced by every service)
+Backend.sln                           Opens every .NET project in VS/Rider
 ```
 
 TS imports use the `@vibey/*` scope; C# code uses the
@@ -52,12 +62,15 @@ dotnet restore Backend.sln
 pnpm start
 ```
 
-Runs `nx run-many -t serve -p web products-service orders-service`. Nx
-streams logs from all three processes. Open http://localhost:4200.
+Runs `nx run-many -t serve -p web` together with every .NET service. Nx
+streams logs from all processes. Open http://localhost:4200.
 
 The Angular dev server proxies API calls (see `apps/web/proxy.conf.json`):
-- `/api/products` -> http://localhost:5101
-- `/api/orders`   -> http://localhost:5102
+- `/api/products`  -> http://localhost:5101
+- `/api/orders`    -> http://localhost:5102
+- `/api/users`     -> http://localhost:5103
+- `/api/inventory` -> http://localhost:5104
+- `/api/payments`  -> http://localhost:5105
 
 Individually:
 
@@ -65,6 +78,9 @@ Individually:
 pnpm start:web
 pnpm start:products
 pnpm start:orders
+pnpm start:users
+pnpm start:inventory
+pnpm start:payments
 ```
 
 ## Build

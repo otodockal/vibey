@@ -28,6 +28,15 @@
       ],
       "@vibey/orders-data-access": [
         "./libs/orders-data-access/src/index.ts"
+      ],
+      "@vibey/users-data-access": [
+        "./libs/users-data-access/src/index.ts"
+      ],
+      "@vibey/inventory-data-access": [
+        "./libs/inventory-data-access/src/index.ts"
+      ],
+      "@vibey/payments-data-access": [
+        "./libs/payments-data-access/src/index.ts"
       ]
     }
   },

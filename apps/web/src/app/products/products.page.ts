@@ -1,14 +1,13 @@
 import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CardComponent, Product } from '@vibey/shared-ui';
+import { CardComponent, PageGridComponent, Product } from '@vibey/shared-ui';
 import { injectRouteData } from 'ngxtension/inject-route-data';
 
 @Component({
   selector: 'app-products-page',
   styleUrl: './products.page.scss',
   template: `
-    <h2>Products</h2>
-    <div class="grid">
+    <ui-page-grid title="Products">
       @for (p of items(); track p.id) {
         <ui-card [title]="p.name">
           <dl>
@@ -23,9 +22,9 @@ import { injectRouteData } from 'ngxtension/inject-route-data';
           </dl>
         </ui-card>
       }
-    </div>
+    </ui-page-grid>
   `,
-  imports: [CardComponent, DecimalPipe],
+  imports: [CardComponent, PageGridComponent, DecimalPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ProductsPage {

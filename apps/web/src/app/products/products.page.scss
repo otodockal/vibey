@@ -1,46 +1,19 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
-}
-
 dl {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem 1rem;
-  margin: 0;
   align-items: end;
-
-  > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-
-    &.price {
-      text-align: right;
-
-      dd {
-        font-family: var(--font-mono);
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--fg);
-        font-variant-numeric: tabular-nums;
-      }
-    }
-  }
-
-  dt {
-    font-size: 0.68rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--fg-subtle);
-  }
+  margin: 0;
 
   dd {
-    margin: 0;
-    font-size: 0.875rem;
-    color: var(--fg);
     font-variant-numeric: tabular-nums;
+  }
+}
+
+dl .price {
+  text-align: right;
+
+  dd {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--fg);
   }
 }

@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}

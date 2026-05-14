@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { InventoryService } from '@vibey/inventory-data-access';
-import { CardComponent, StockItem } from '@vibey/shared-ui';
-import { injectRouteData } from 'ngxtension/inject-route-data';
+import { CardComponent, PageGridComponent, StockItem } from '@vibey/shared-ui';
 import { refetchAll } from '@vibey/shared-util';
+import { injectRouteData } from 'ngxtension/inject-route-data';
+import { pipe, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-inventory-page',
   styleUrl: './inventory.page.scss',
   template: `
-    <h2>Inventory</h2>
-    <div class="grid">
+    <ui-page-grid title="Inventory">
       @for (s of items(); track s.productId) {
         <ui-card [title]="'Product #' + s.productId">
           <dl>
@@ -22,12 +23,14 @@ import { refetchAll } from '@vibey/shared-util';
               <dd class="num">{{ s.reserved }}</dd>
             </div>
           </dl>
-          <button (click)="reserve(s.productId)">Reserve 1</button>
+          <button class="card-action" (click)="reserve(s.productId)">
+            Reserve 1
+          </button>
         </ui-card>
       }
-    </div>
+    </ui-page-grid>
   `,
-  imports: [CardComponent],
+  imports: [CardComponent, PageGridComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class InventoryPage {
@@ -36,9 +39,13 @@ export default class InventoryPage {
 
   readonly items = injectRouteData<StockItem[]>('data');
 
-  protected reserve(productId: number): void {
-    this.#service
-      .reserve({ productId, quantity: 1 })
-      .subscribe(() => this.#refetch());
-  }
+  readonly reserve = rxMethod<number>(
+    pipe(
+      switchMap((productId) =>
+        this.#service
+          .reserve({ productId, quantity: 1 })
+          .pipe(tap(() => this.#refetch())),
+      ),
+    ),
+  );
 }

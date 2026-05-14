@@ -1,25 +1,24 @@
 import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { OrdersService } from '@vibey/orders-data-access';
-import { CardComponent, Order } from '@vibey/shared-ui';
-import { injectRouteData } from 'ngxtension/inject-route-data';
+import { CardComponent, Order, PageGridComponent } from '@vibey/shared-ui';
 import { refetchAll } from '@vibey/shared-util';
+import { injectRouteData } from 'ngxtension/inject-route-data';
+import { pipe, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-orders-page',
   styleUrl: './orders.page.scss',
   template: `
-    <div class="page-actions">
-      <h2>Orders</h2>
-      <button (click)="create()">Create sample order</button>
-    </div>
-    <div class="grid">
+    <ui-page-grid title="Orders">
+      <button page-action (click)="create()">Create sample order</button>
       @for (o of items(); track o.id) {
         <ui-card [title]="'Order #' + o.id">
           <dl>
             <div>
               <dt>Customer</dt>
-              <dd>{{ o.customerEmail }}</dd>
+              <dd class="ellipsis">{{ o.customerEmail }}</dd>
             </div>
             <div>
               <dt>Lines</dt>
@@ -33,9 +32,9 @@ import { refetchAll } from '@vibey/shared-util';
           <time>{{ o.createdAt }}</time>
         </ui-card>
       }
-    </div>
+    </ui-page-grid>
   `,
-  imports: [CardComponent, DecimalPipe],
+  imports: [CardComponent, PageGridComponent, DecimalPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class OrdersPage {
@@ -44,15 +43,19 @@ export default class OrdersPage {
 
   readonly items = injectRouteData<Order[]>('data');
 
-  protected create(): void {
-    this.#service
-      .create({
-        customerEmail: 'demo@example.com',
-        lines: [
-          { productId: 1, quantity: 2 },
-          { productId: 2, quantity: 1 },
-        ],
-      })
-      .subscribe(() => this.#refetch());
-  }
+  readonly create = rxMethod<void>(
+    pipe(
+      switchMap(() =>
+        this.#service
+          .create({
+            customerEmail: 'demo@example.com',
+            lines: [
+              { productId: 1, quantity: 2 },
+              { productId: 2, quantity: 1 },
+            ],
+          })
+          .pipe(tap(() => this.#refetch())),
+      ),
+    ),
+  );
 }

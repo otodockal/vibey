@@ -8,6 +8,4 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {
-  protected readonly title = 'Vibey';
-}
+export class App {}

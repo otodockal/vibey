@@ -26,6 +26,9 @@ importers:
       '@angular/router':
         specifier: ~21.2.0
         version: 21.2.12(@angular/common@21.2.12(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(@angular/platform-browser@21.2.12(@angular/common@21.2.12(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2)))(rxjs@7.8.2)
+      '@ngrx/signals':
+        specifier: ^21.1.0
+        version: 21.1.0(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2)
       ngxtension:
         specifier: ^7.2.0
         version: 7.2.0(@angular/common@21.2.12(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -56,7 +59,7 @@ importers:
         version: 9.39.4
       '@nx/angular':
         specifier: 22.7.1
-        version: 22.7.1(3d524046b82fc9253a64a0407473c06e)
+        version: 22.7.1(zjy2eojcbsy72iohepp5nhmhli)
       '@nx/dotnet':
         specifier: 22.7.1
         version: 22.7.1(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
@@ -71,7 +74,7 @@ importers:
         version: 22.7.1(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
       '@nx/web':
         specifier: 22.7.1
-        version: 22.7.1(6da813b173de5119d1268e94650a7c12)
+        version: 22.7.1(ig4xrodfrpcpasbt3jrh56srxm)
       '@nx/workspace':
         specifier: 22.7.1
         version: 22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))
@@ -1762,6 +1765,15 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
+
+  '@ngrx/signals@21.1.0':
+    resolution: {integrity: sha512-eDGaBs6sssEZe2cLGwDdRnfTwyx9TKD+zpLW8yDov6acWzyi0nW5qxUWjpMRwmIU1i+o0t5MMpQaF/rFMmtHSg==}
+    peerDependencies:
+      '@angular/core': ^21.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
 
   '@noble/hashes@1.4.0':
     resolution: {integrity: sha512-V1JJ1WTRUqHHrOSh597hURcMqVKVGL/ea3kv0gSnEdsEZ0/+VyPghM1lMNGc00z7CIQorSvbKpuJkxvuHbvdbg==}
@@ -8187,6 +8199,13 @@ snapshots:
       '@tybys/wasm-util': 0.10.2
     optional: true
 
+  '@ngrx/signals@21.1.0(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2)
+      tslib: 2.8.1
+    optionalDependencies:
+      rxjs: 7.8.2
+
   '@noble/hashes@1.4.0': {}
 
   '@npmcli/agent@4.0.0':
@@ -8245,16 +8264,16 @@ snapshots:
       node-gyp: 12.3.0
       proc-log: 6.1.0
 
-  '@nx/angular@22.7.1(3d524046b82fc9253a64a0407473c06e)':
+  '@nx/angular@22.7.1(zjy2eojcbsy72iohepp5nhmhli)':
     dependencies:
       '@angular-devkit/core': 21.2.10(chokidar@5.0.0)
       '@angular-devkit/schematics': 21.2.10(chokidar@5.0.0)
       '@nx/devkit': 22.7.1(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
       '@nx/eslint': 22.7.1(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(@zkochan/js-yaml@0.0.7)(eslint@9.39.4(jiti@2.7.0))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
       '@nx/js': 22.7.1(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
-      '@nx/module-federation': 22.7.1(29fca34dd9a08d646679094d7e3ba3d0)
-      '@nx/rspack': 22.7.1(44010a042878644a3776dcfdca4f3ef8)
-      '@nx/web': 22.7.1(6da813b173de5119d1268e94650a7c12)
+      '@nx/module-federation': 22.7.1(6ipjrwdpzm3kik5u5ikhwyzsze)
+      '@nx/rspack': 22.7.1(pky2tbdr3lkiuwipvn54vjoyfu)
+      '@nx/web': 22.7.1(ig4xrodfrpcpasbt3jrh56srxm)
       '@nx/webpack': 22.7.1(@babel/traverse@7.29.0)(@rspack/core@1.6.8(@swc/helpers@0.5.21))(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))(typescript@5.9.3)
       '@nx/workspace': 22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))
       '@phenomnomnominal/tsquery': 6.1.4(typescript@5.9.3)
@@ -8413,14 +8432,14 @@ snapshots:
       - nx
       - supports-color
 
-  '@nx/module-federation@22.7.1(29fca34dd9a08d646679094d7e3ba3d0)':
+  '@nx/module-federation@22.7.1(6ipjrwdpzm3kik5u5ikhwyzsze)':
     dependencies:
       '@module-federation/enhanced': 2.4.0(@rspack/core@1.6.8(@swc/helpers@0.5.21))(node-fetch@2.7.0(encoding@0.1.13))(typescript@5.9.3)(webpack@5.106.2(@swc/core@1.15.33(@swc/helpers@0.5.21))(postcss@8.5.14))
       '@module-federation/node': 2.7.42(@rspack/core@1.6.8(@swc/helpers@0.5.21))(typescript@5.9.3)(webpack@5.106.2(@swc/core@1.15.33(@swc/helpers@0.5.21))(postcss@8.5.14))
       '@module-federation/sdk': 2.4.0(node-fetch@2.7.0(encoding@0.1.13))
       '@nx/devkit': 22.7.1(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
       '@nx/js': 22.7.1(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
-      '@nx/web': 22.7.1(6da813b173de5119d1268e94650a7c12)
+      '@nx/web': 22.7.1(ig4xrodfrpcpasbt3jrh56srxm)
       '@rspack/core': 1.6.8(@swc/helpers@0.5.21)
       express: 4.22.1
       http-proxy-middleware: 3.0.5
@@ -8490,14 +8509,14 @@ snapshots:
   '@nx/nx-win32-x64-msvc@22.7.1':
     optional: true
 
-  '@nx/rspack@22.7.1(44010a042878644a3776dcfdca4f3ef8)':
+  '@nx/rspack@22.7.1(pky2tbdr3lkiuwipvn54vjoyfu)':
     dependencies:
       '@module-federation/enhanced': 2.4.0(@rspack/core@1.6.8(@swc/helpers@0.5.21))(node-fetch@2.7.0(encoding@0.1.13))(typescript@5.9.3)(webpack@5.106.2(@swc/core@1.15.33(@swc/helpers@0.5.21))(postcss@8.5.14))
       '@module-federation/node': 2.7.42(@rspack/core@1.6.8(@swc/helpers@0.5.21))(typescript@5.9.3)(webpack@5.106.2(@swc/core@1.15.33(@swc/helpers@0.5.21))(postcss@8.5.14))
       '@nx/devkit': 22.7.1(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
       '@nx/js': 22.7.1(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
-      '@nx/module-federation': 22.7.1(29fca34dd9a08d646679094d7e3ba3d0)
-      '@nx/web': 22.7.1(6da813b173de5119d1268e94650a7c12)
+      '@nx/module-federation': 22.7.1(6ipjrwdpzm3kik5u5ikhwyzsze)
+      '@nx/web': 22.7.1(ig4xrodfrpcpasbt3jrh56srxm)
       '@phenomnomnominal/tsquery': 6.1.4(typescript@5.9.3)
       '@rspack/core': 1.6.8(@swc/helpers@0.5.21)
       '@rspack/dev-server': 1.2.1(@rspack/core@1.6.8(@swc/helpers@0.5.21))(tslib@2.8.1)(webpack@5.106.2(@swc/core@1.15.33(@swc/helpers@0.5.21))(postcss@8.5.14))
@@ -8561,7 +8580,7 @@ snapshots:
       - webpack-cli
       - webpack-hot-middleware
 
-  '@nx/web@22.7.1(6da813b173de5119d1268e94650a7c12)':
+  '@nx/web@22.7.1(ig4xrodfrpcpasbt3jrh56srxm)':
     dependencies:
       '@nx/devkit': 22.7.1(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))
       '@nx/js': 22.7.1(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21))(nx@22.7.1(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.33(@swc/helpers@0.5.21))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.33(@swc/helpers@0.5.21)))

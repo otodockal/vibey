@@ -4,34 +4,120 @@
 
 .card {
   position: relative;
-  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-  border-radius: var(--radius-lg, 16px);
+  border: var(--border-w-strong, 3px) solid var(--fg, #0a0a0a);
+  border-radius: 0;
   padding: 1.25rem 1.4rem;
   background: var(--surface, #fff);
+  box-shadow: var(--shadow, 5px 5px 0 #0a0a0a);
   transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 .card:hover {
-  border-color: var(--border-strong, rgba(0, 0, 0, 0.18));
-  box-shadow: var(--shadow-lg, 0 8px 24px -12px rgba(0, 0, 0, 0.12));
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg, 8px 8px 0 #0a0a0a);
 }
 
 header {
-  margin-bottom: 0.875rem;
+  margin: -1.25rem -1.4rem 1rem;
+  padding: 0.625rem 1.4rem;
+  background: var(--fg, #0a0a0a);
+  border-bottom: var(--border-w-strong, 3px) solid var(--fg, #0a0a0a);
 }
 
 header h3 {
   margin: 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--fg, #0a0a0a);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .body {
-  color: var(--fg-muted, #525252);
+  color: var(--fg, #0a0a0a);
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+:host ::ng-deep dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+  margin: 0 0 0.75rem;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+  }
+
+  dt {
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-subtle);
+  }
+
+  dd {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg);
+  }
+
+  dd.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  dd.num {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+:host ::ng-deep time {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+:host ::ng-deep .card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.875rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #fff;
+  background: var(--fg);
+  border: 1px solid var(--fg);
+  border-radius: var(--radius-sm);
+  transition:
+    background 0.15s ease,
+    transform 0.05s ease;
+
+  &:hover {
+    background: var(--accent-hover);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
 }

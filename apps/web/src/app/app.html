@@ -4,6 +4,10 @@
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">{{ title }}</span>
     </a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
     <nav>
       <a routerLink="/products" routerLinkActive="is-active">Products</a>
       <a routerLink="/orders" routerLinkActive="is-active">Orders</a>
@@ -11,10 +15,8 @@
       <a routerLink="/inventory" routerLinkActive="is-active">Inventory</a>
       <a routerLink="/payments" routerLinkActive="is-active">Payments</a>
     </nav>
-  </div>
-</header>
-<main>
-  <div class="container">
+  </aside>
+  <main>
     <router-outlet />
-  </div>
-</main>
+  </main>
+</div>

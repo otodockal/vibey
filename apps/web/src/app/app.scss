@@ -19,7 +19,6 @@
   padding: 0.875rem 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 2rem;
 
   @media (max-width: 1232px) {
@@ -48,14 +47,37 @@
   font-size: 1rem;
 }
 
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+
+  @media (max-width: 1232px) {
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 4.5rem;
+  align-self: start;
+}
+
 nav {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 0.25rem;
 }
 
 nav a {
-  position: relative;
   padding: 0.5rem 0.875rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -78,16 +100,7 @@ nav a {
 }
 
 main {
-  padding: 2.5rem 0 4rem;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-
-  @media (max-width: 1232px) {
-    padding: 0 1.25rem;
-  }
+  min-width: 0;
 }
 
 ::ng-deep h2 {

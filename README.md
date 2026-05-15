@@ -5,6 +5,15 @@
 A minimal Nx 22 workspace combining an Angular 21 frontend with multiple
 .NET 10 microservices, sharing typed contracts and orchestrated through Nx.
 
+## Vibe a full-stack feature (BE + FE)
+
+```
+Add <name> microservice and wire it into the FE.
+```
+
+The [vibey-developer](.claude/skills/vibey-developer/SKILL.md) skill picks up
+the conventions automatically.
+
 ## Stack
 
 - Nx 22.7.1 with the official `@nx/dotnet` plugin (auto-infers targets from `.csproj`)
@@ -19,6 +28,10 @@ apps/
   web/                                Angular FE (port 4200)
   products-service/
     ProductsService/                  .NET 10 service (port 5101)
+      Api/                            Minimal API endpoints + DTO mappers
+      Application/                    Use-case orchestration
+      Domain/                         Entities + repository interfaces
+      Infrastructure/                 Repository / external-service impls
   orders-service/
     OrdersService/                    .NET 10 service (port 5102)
   users-service/
@@ -43,6 +56,13 @@ Backend.sln                           Opens every .NET project in VS/Rider
 TS imports use the `@vibey/*` scope; C# code uses the
 `Vibey.*` namespace.
 
+Each .NET service follows a lightweight DDD layout — `Api` (HTTP edge),
+`Application` (use cases), `Domain` (entities + repository interfaces), and
+`Infrastructure` (concrete repositories, HTTP clients, external integrations).
+Dependencies point inward: `Api` and `Infrastructure` depend on `Application`
+and `Domain`; `Domain` depends on nothing. `Program.cs` is the composition
+root that wires the layers together.
+
 ## Prerequisites
 
 - Node 22+
@@ -66,11 +86,12 @@ Runs `nx run-many -t serve -p web` together with every .NET service. Nx
 streams logs from all processes. Open http://localhost:4200.
 
 The Angular dev server proxies API calls (see `apps/web/proxy.conf.json`):
-- `/api/products`  -> http://localhost:5101
-- `/api/orders`    -> http://localhost:5102
-- `/api/users`     -> http://localhost:5103
+
+- `/api/products` -> http://localhost:5101
+- `/api/orders` -> http://localhost:5102
+- `/api/users` -> http://localhost:5103
 - `/api/inventory` -> http://localhost:5104
-- `/api/payments`  -> http://localhost:5105
+- `/api/payments` -> http://localhost:5105
 
 Individually:
 
@@ -138,19 +159,6 @@ the TS types from each service's OpenAPI document
 (http://localhost:5101/openapi/v1.json) with `nswag` or `openapi-typescript`
 and emit them into a generated `libs/api-clients/{products,orders}/` library
 that the FE consumes instead of `shared-ui`.
-
-## Adding another microservice
-
-1. Create `apps/<name>-service/<Name>Service/<Name>Service.csproj` referencing
-   `Contracts.csproj`.
-2. Add a `Program.cs` and `Properties/launchSettings.json` with a free port.
-3. Add the csproj to `Backend.sln`.
-4. Add a route in `apps/web/proxy.conf.json` if the FE talks to it.
-5. (Optional) Generate a TypeScript data-access lib:
-   `pnpm nx g @nx/angular:lib libs/<name>-data-access --standalone`.
-
-`@nx/dotnet` picks the new service up automatically — no `project.json`
-needed unless you want to override defaults.
 
 ## Production deployment notes
 

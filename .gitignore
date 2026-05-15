@@ -51,3 +51,4 @@ obj/
 *.user
 *.suo
 .vs/
+*.lscache
